@@ -50,3 +50,10 @@ m = X_norm.shape[0]
 yp = np.zeros(m)
 yp = predict(X_norm, w_norm, b_norm)
 print(f"The prediction:\n {yp}\nThe target:\n {y_train}")
+
+# First, normalize out example.
+x_house = np.array([1200, 3, 1, 40])
+x_house_norm = (x_house - X_mu) / X_sigma
+print(x_house_norm)
+x_house_predict = np.dot(x_house_norm, w_norm) + b_norm
+print(f" predicted price of a house with 1200 sqft, 3 bedrooms, 1 floor, 40 years old = ${x_house_predict*1000:0.0f}")
